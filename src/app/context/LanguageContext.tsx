@@ -214,6 +214,14 @@ export const translations: TranslationsType = {
     tr: 'Mesajınız gönderilirken bir hata oluştu. Lütfen daha sonra tekrar deneyin.',
     en: 'An error occurred while sending your message. Please try again later.',
   },
+  'contact.form.contactus': {
+    tr: 'Bize Ulaşın',
+    en: 'Contact Us',
+  },
+  'contact.form.contactus.desc': {
+    tr: 'Kaliteli hizmet ve müşteri memnuniyeti odaklı çalışmalarımızla sektörde öncü konumdayız.',
+    en: 'We are a leader in the industry with our quality service and customer satisfaction work.',
+  },
   'contact.map.title': {
     tr: 'Bize Ulaşın',
     en: 'Find Us',

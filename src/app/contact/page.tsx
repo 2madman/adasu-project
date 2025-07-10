@@ -5,6 +5,7 @@ import Navbar from '@/app/components/navbar';
 import Footer from '@/app/components/footer';
 import { FaPhone, FaFax, FaEnvelope, FaMapMarkerAlt, FaWhatsapp } from 'react-icons/fa';
 import { useLanguage } from '@/app/context/LanguageContext';
+import Image from 'next/image';
 
 export default function ContactPage() {
     const { t, language } = useLanguage();
@@ -79,13 +80,21 @@ export default function ContactPage() {
         <div className="min-h-screen flex flex-col bg-white">
             <Navbar />
 
-            {/* Contact Header */}
-            <div className="bg-gray-200 py-20 mt-16">
-                <div className="container mx-auto px-4">
-                    <h1 className="text-4xl font-bold text-center text-gray-800">{t('contact.title')}</h1>
-                    <p className="text-xl text-center text-gray-600 mt-4">
-                        {t('contact.subtitle')}
-                    </p>
+            {/* Hero Image Section */}
+            <div className="bg-gray-200 flex items-start justify-center pt-4 mt-16 min-h-[300px] relative overflow-hidden">
+                {/* Background Image */}
+                <Image
+                    src="/images/resim.png"
+                    alt="Main Background"
+                    fill
+                    className="object-cover opacity-30 pointer-events-none select-none z-0"
+                    priority
+                />
+                {/* Overlay for readability */}
+                <div className="absolute inset-0 bg-white/30 z-10" />
+                <div className="container mx-auto px-6 py-4 text-center relative z-20 flex flex-col items-center justify-center">
+                    <h1 className="text-4xl font-bold text-gray-800 mb-2 mt-8">{t('contact.title')}</h1>
+                    <p className="text-xl text-gray-600 mt-2 mb-8">{t('contact.subtitle')}</p>
                 </div>
             </div>
 
@@ -166,83 +175,17 @@ export default function ContactPage() {
                     </div>
 
                     {/* Contact Form */}
-                    <div className="bg-white p-8 rounded-lg shadow-md">
-                        <h2 className="text-2xl font-bold text-gray-800 mb-6">{t('contact.form.title')}</h2>
-
-                        {submitStatus === 'success' && (
-                            <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6">
-                                {t('contact.form.success')}
-                            </div>
-                        )}
-
-                        {submitStatus === 'error' && (
-                            <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6">
-                                {t('contact.form.error')}
-                            </div>
-                        )}
-
-                        <form onSubmit={handleSubmit}>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                                <div>
-                                    <label htmlFor="name" className="block text-gray-700 font-medium mb-2">{t('contact.form.name')}</label>
-                                    <input
-                                        type="text"
-                                        id="name"
-                                        name="name"
-                                        value={formData.name}
-                                        onChange={handleChange}
-                                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                        required
-                                    />
-                                </div>
-
-                                <div>
-                                    <label htmlFor="email" className="block text-gray-700 font-medium mb-2">{t('contact.form.email')}</label>
-                                    <input
-                                        type="email"
-                                        id="email"
-                                        name="email"
-                                        value={formData.email}
-                                        onChange={handleChange}
-                                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                        required
-                                    />
-                                </div>
-                            </div>
-
-                            <div className="mb-4">
-                                <label htmlFor="phone" className="block text-gray-700 font-medium mb-2">{t('contact.form.phone')}</label>
-                                <input
-                                    type="tel"
-                                    id="phone"
-                                    name="phone"
-                                    value={formData.phone}
-                                    onChange={handleChange}
-                                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                />
-                            </div>
-
-                            <div className="mb-6">
-                                <label htmlFor="message" className="block text-gray-700 font-medium mb-2">{t('contact.form.message')}</label>
-                                <textarea
-                                    id="message"
-                                    name="message"
-                                    value={formData.message}
-                                    onChange={handleChange}
-                                    rows={5}
-                                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                    required
-                                ></textarea>
-                            </div>
-
-                            <button
-                                type="submit"
-                                disabled={isSubmitting}
-                                className={`w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 px-4 rounded-md transition duration-300 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
-                            >
-                                {isSubmitting ? t('contact.form.sending') : t('contact.form.submit')}
-                            </button>
-                        </form>
+                    <div className="bg-white p-8 rounded-lg shadow-md flex flex-col items-start justify-center">
+                        <h2 className="text-2xl font-bold text-gray-800 mb-6">{t('contact.form.contactus')}</h2>
+                        <p className="text-gray-700 mb-8">
+                            {t('contact.form.contactus.desc')}
+                        </p>
+                        <a
+                            href="mailto:info@adarad.net"
+                            className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded transition duration-300 text-lg font-semibold shadow-md"
+                        >
+                            {t('contact.form.contactus')}
+                        </a>
                     </div>
                 </div>
             </div>
