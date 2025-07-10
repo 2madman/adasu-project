@@ -45,31 +45,32 @@ const certificates = [
   },
 ];
 
-export function CertificatesPage() {
-  const { t, language } = useLanguage();
-  return (
-    <div className="min-h-screen bg-white py-16 px-4">
-      <h1 className="text-2xl font-bold mb-8 text-center">Belgeler ve Sertifikalar</h1>
-      <div className="max-w-2xl mx-auto">
-        <ul className="space-y-4">
-          {certificates.map((cert) => (
-            <li key={cert.name} className="flex items-center justify-between bg-gray-100 rounded-lg p-4 shadow">
-              <span className="truncate font-medium">{cert.name}</span>
-              <a
-                href={cert.path}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="ml-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
-              >
-                İndir / Görüntüle
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
-  );
-}
+// Remove or move this CertificatesPage export to its own file under /certificates/page.tsx
+// export function CertificatesPage() {
+//   const { t, language } = useLanguage();
+//   return (
+//     <div className="min-h-screen bg-white py-16 px-4">
+//       <h1 className="text-2xl font-bold mb-8 text-center">Belgeler ve Sertifikalar</h1>
+//       <div className="max-w-2xl mx-auto">
+//         <ul className="space-y-4">
+//           {certificates.map((cert) => (
+//             <li key={cert.name} className="flex items-center justify-between bg-gray-100 rounded-lg p-4 shadow">
+//               <span className="truncate font-medium">{cert.name}</span>
+//               <a
+//                 href={cert.path}
+//                 target="_blank"
+//                 rel="noopener noreferrer"
+//                 className="ml-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+//               >
+//                 İndir / Görüntüle
+//               </a>
+//             </li>
+//           ))}
+//         </ul>
+//       </div>
+//     </div>
+//   );
+// }
 
 export default function Anasayfa() {
   const { t, language } = useLanguage();
