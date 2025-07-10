@@ -12,7 +12,7 @@ const images = [
 ];
 
 export default function CnrExpomedGallery() {
-    const { t, language } = useLanguage();
+    const { language } = useLanguage();
     const [modalOpen, setModalOpen] = useState(false);
     const [modalImg, setModalImg] = useState(0);
 

@@ -220,7 +220,7 @@ export default function UrunlerDetaySayfasi() {
                                                 {product.description && (
                                                     <div className="mb-6">
                                                         <p className="text-gray-700 text-lg leading-relaxed font-sans">
-                                                            {product.description?.split('\\n').map((line, index, array) => (
+                                                            {product.description?.split('\\n').map((line, index) => (
                                                                 line.trim() && (
                                                                     <span key={index} className="block mb-3 last:mb-0">
                                                                         <span className="text-blue-600 mr-2">•</span>
@@ -240,7 +240,7 @@ export default function UrunlerDetaySayfasi() {
                                                     {t('product.technical')}
                                                 </h3>
                                                 <p className="text-gray-700 text-lg leading-relaxed font-sans">
-                                                    {product.technical?.split('\\n').map((line, index, array) => (
+                                                    {product.technical?.split('\\n').map((line, index) => (
                                                         line.trim() && (
                                                             <span key={index} className="block mb-3 last:mb-0">
                                                                 <span className="text-blue-600 mr-2">•</span>
@@ -258,7 +258,7 @@ export default function UrunlerDetaySayfasi() {
                                                     {t('product.summary')}
                                                 </h3>
                                                 <p className="text-gray-700 text-lg leading-relaxed font-sans">
-                                                    {product.summary?.split('\\n').map((line, index, array) => (
+                                                    {product.summary?.split('\\n').map((line, index) => (
                                                         line.trim() && (
                                                             <span key={index} className="block mb-3 last:mb-0">
                                                                 <span className="text-blue-600 mr-2">•</span>

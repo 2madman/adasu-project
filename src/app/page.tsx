@@ -76,11 +76,8 @@ export default function Anasayfa() {
   const router = useRouter();
   const [isProductsOpen, setIsProductsOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
-  const [productsAnimationClass, setProductsAnimationClass] = useState("opacity-0 -translate-y-4");
-  const [servicesAnimationClass, setServicesAnimationClass] = useState("opacity-0 -translate-y-4");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedProduct, setSelectedProduct] = useState("");
-  const [searchQuery, setSearchQuery] = useState("");
   const [showProductSelect, setShowProductSelect] = useState(false);
 
   // Title translations
@@ -180,12 +177,12 @@ export default function Anasayfa() {
 
   useEffect(() => {
     if (isProductsOpen) {
-      setProductsAnimationClass("opacity-0 -translate-y-4");
+      // setProductsAnimationClass("opacity-0 -translate-y-4"); // This line is removed
       setTimeout(() => {
-        setProductsAnimationClass("opacity-100 translate-y-0");
+        // setProductsAnimationClass("opacity-100 translate-y-0"); // This line is removed
       }, 50);
     } else {
-      setProductsAnimationClass("opacity-0 -translate-y-4");
+      // setProductsAnimationClass("opacity-0 -translate-y-4"); // This line is removed
       setTimeout(() => {
         setIsProductsOpen(false);
       }, 300); // Match this duration with your CSS transition duration
@@ -194,12 +191,12 @@ export default function Anasayfa() {
 
   useEffect(() => {
     if (isServicesOpen) {
-      setServicesAnimationClass("opacity-0 -translate-y-4");
+      // setServicesAnimationClass("opacity-0 -translate-y-4"); // This line is removed
       setTimeout(() => {
-        setServicesAnimationClass("opacity-100 translate-y-0");
+        // setServicesAnimationClass("opacity-100 translate-y-0"); // This line is removed
       }, 50);
     } else {
-      setServicesAnimationClass("opacity-0 -translate-y-4");
+      // setServicesAnimationClass("opacity-0 -translate-y-4"); // This line is removed
       setTimeout(() => {
         setIsServicesOpen(false);
       }, 300); // Match this duration with your CSS transition duration

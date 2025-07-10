@@ -12,7 +12,7 @@ const images = [
 ];
 
 export default function KibrisKongreGallery() {
-    const { t, language } = useLanguage();
+    const { language } = useLanguage();
     const [modalOpen, setModalOpen] = useState(false);
     const [modalImg, setModalImg] = useState(0);
 
@@ -25,7 +25,7 @@ export default function KibrisKongreGallery() {
                 {language === 'tr' ? (
                     <div className="mb-10 max-w-2xl text-center">
                         <p className="text-lg text-gray-800 mb-4">
-                            2024 Kıbrıs Nükleer Tıp Kongresi'nde, nükleer tıp alanındaki en son gelişmeler ve yenilikçi uygulamalar katılımcılarla paylaşıldı. Etkinlik boyunca, sektör profesyonelleri bilgi alışverişinde bulunarak yeni iş birliklerinin temellerini attı. Fotoğraflarımızda, kongre atmosferini ve katılımcıların etkileşimini görebilirsiniz.
+                            2024 Kıbrıs Nükleer Tıp Kongresi&apos;nde, nükleer tıp alanındaki en son gelişmeler ve yenilikçi uygulamalar katılımcılarla paylaşıldı. Etkinlik boyunca, sektör profesyonelleri bilgi alışverişinde bulunarak yeni iş birliklerinin temellerini attı. Fotoğraflarımızda, kongre atmosferini ve katılımcıların etkileşimini görebilirsiniz.
                         </p>
                     </div>
                 ) : (
