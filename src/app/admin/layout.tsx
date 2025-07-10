@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Admin Panel - Adasu',
@@ -15,9 +16,9 @@ export default function AdminLayout({
       <div className="bg-blue-700 text-white p-4">
         <div className="container mx-auto flex justify-between items-center">
           <h1 className="text-xl font-bold">Adasu Admin Panel</h1>
-          <a href="/" className="text-sm hover:underline">
+          <Link href="/" className="text-sm hover:underline">
             Return to Website
-          </a>
+          </Link>
         </div>
       </div>
       <main>{children}</main>
