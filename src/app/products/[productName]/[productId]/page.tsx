@@ -112,20 +112,14 @@ export default function UrunlerDetaySayfasi() {
 
     useEffect(() => {
         const fetchProduct = async () => {
-            console.log(`Fetching product with ID: ${productId}...`);
             try {
-                // Debug: Check if db is properly initialized
-                console.log("Firestore DB instance:", db);
 
                 const productRef = doc(db, 'products', productId);
-                console.log("Product document reference created:", productRef);
 
                 const productSnapshot = await getDoc(productRef);
-                console.log("Product snapshot received:", productSnapshot);
 
                 if (productSnapshot.exists()) {
                     const data = productSnapshot.data();
-                    console.log("Product data:", data);
 
                     const productData: Product = {
                         id: productSnapshot.id,
@@ -136,10 +130,8 @@ export default function UrunlerDetaySayfasi() {
                         images: data.images || null,
                     };
 
-                    console.log("Processed product data:", productData);
                     setProduct(productData);
                 } else {
-                    console.log("No product found with this ID");
                     setError(`Sayfa Bulunamadı`);
                 }
             } catch (error) {

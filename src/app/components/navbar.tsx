@@ -126,77 +126,6 @@ const ServicesDropdown = ({ isOpen, animationClass, onMouseLeave, onProductClick
     );
 }
 
-// Language dropdown menu component
-interface LanguageDropdownProps {
-    isOpen: boolean;
-    animationClass: string;
-    onMouseLeave: () => void;
-    onLanguageChange: (lang: 'tr' | 'en') => void;
-    currentLanguage: 'tr' | 'en';
-}
-
-const LanguageDropdown = ({ isOpen, animationClass, onMouseLeave, onLanguageChange, currentLanguage }: LanguageDropdownProps) => (
-    <div
-        className={`absolute top-16 right-0 bg-white/95 shadow-lg z-50 h-auto transition-all duration-300 ease-in-out transform ${isOpen ? 'block' : 'hidden'} ${animationClass} rounded-md`}
-        onMouseLeave={onMouseLeave}
-    >
-        <div className="py-2 px-4">
-            {currentLanguage === 'en' ? (
-                <button
-                    onClick={() => onLanguageChange('tr')}
-                    className="flex items-center py-2 hover:opacity-80 transition-opacity text-xs font-light"
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="32"
-                        height="32"
-                        viewBox="0 0 512 512"
-                        className="mr-2"
-                    >
-                        <mask id="a">
-                            <circle cx="256" cy="256" r="256" fill="#fff" />
-                        </mask>
-                        <g mask="url(#a)">
-                            <path fill="#d80027" d="M0 0h512v512H0z" />
-                            <g fill="#f0f0f0">
-                                <path d="M245.5 209.2l21 29 34-11.1-21 29 21 28.9-34-11.1-21 29V267l-34-11.1 34-11.1z" />
-                                <path d="M188.2 328.3a72.3 72.3 0 1 1 34.4-136 89 89 0 1 0 0 127.3 72 72 0 0 1-34.4 8.7z" />
-                            </g>
-                        </g>
-                    </svg>
-                    <span className="ml-2 text-xs font-light text-gray-800">Türkçe</span>
-                </button>
-            ) : (
-                <button
-                    onClick={() => onLanguageChange('en')}
-                    className="flex items-center py-2 hover:opacity-80 transition-opacity text-xs font-light"
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="32"
-                        height="32"
-                        viewBox="0 0 512 512"
-                        className="mr-2"
-                    >
-                        <mask id="b">
-                            <circle cx="256" cy="256" r="256" fill="#fff" />
-                        </mask>
-                        <g mask="url(#b)">
-                            <path fill="#f0f0f0" d="M0 0h512v512H0z" />
-                            <path fill="#0052b4" d="M0 0h512v512H0z" />
-                            <path fill="#f0f0f0" d="M0 0L512 512M512 0L0 512" stroke="#f0f0f0" stroke-width="74" />
-                            <path fill="#f0f0f0" d="M256 0v512M0 256h512" stroke="#f0f0f0" stroke-width="102" />
-                            <path fill="#d80027" d="M0 0L512 512M512 0L0 512" stroke="#d80027" stroke-width="26" />
-                            <path fill="#d80027" d="M256 0v512M0 256h512" stroke="#d80027" stroke-width="54" />
-                        </g>
-                    </svg>
-                    <span className="ml-2 text-xs font-light text-gray-800">English</span>
-                </button>
-            )}
-        </div>
-    </div>
-);
-
 export default function Navbar() {
     const router = useRouter();
     const { language, setLanguage, t } = useLanguage();
@@ -346,7 +275,7 @@ export default function Navbar() {
                             {/* Products dropdown */}
                             <div className="relative flex items-center">
                                 <a
-                                    className="text-xs text-gray-700 hover:text-blue-500 font-light flex items-center"
+                                    className="text-xs text-gray-700 hover:text-blue-500 font-bold flex items-center"
                                     onMouseEnter={() => {
                                         setIsProductsOpen(true);
                                         setIsServicesOpen(false);
@@ -361,7 +290,7 @@ export default function Navbar() {
                             </div>
                             <div className="relative flex items-center">
                                 <a
-                                    className="text-xs text-gray-700 hover:text-blue-500 font-light flex items-center"
+                                    className="text-xs text-gray-700 hover:text-blue-500 font-bold flex items-center"
                                     onMouseEnter={() => {
                                         setIsServicesOpen(true);
                                         setIsProductsOpen(false);
@@ -377,7 +306,7 @@ export default function Navbar() {
                             <div className="flex items-center">
                                 <Link
                                     href={language === 'en' ? '/about' : '/about'}
-                                    className="text-xs text-gray-700 hover:text-blue-500 font-light cursor-pointer"
+                                    className="text-xs text-gray-700 hover:text-blue-500 font-bold cursor-pointer"
                                     prefetch={false}
                                 >
                                     {t('nav.about')}
@@ -387,7 +316,7 @@ export default function Navbar() {
                             <div className="flex items-center">
                                 <Link
                                     href={language === 'en' ? '/contact' : '/contact'}
-                                    className="text-xs text-gray-700 hover:text-blue-500 font-light cursor-pointer"
+                                    className="text-xs text-gray-700 hover:text-blue-500 font-bold cursor-pointer"
                                     prefetch={false}
                                 >
                                     {t('nav.contact')}
@@ -397,7 +326,7 @@ export default function Navbar() {
                             <div className="flex items-center">
                                 <Link
                                     href="/media"
-                                    className="text-xs text-gray-700 hover:text-blue-500 font-light cursor-pointer"
+                                    className="text-xs text-gray-700 hover:text-blue-500 font-bold cursor-pointer"
                                     prefetch={false}
                                 >
                                     {t('nav.media')}
@@ -407,67 +336,34 @@ export default function Navbar() {
                             <div className="flex items-center">
                                 <Link
                                     href="/certificates"
-                                    className="text-xs text-gray-700 hover:text-blue-500 font-light cursor-pointer"
+                                    className="text-xs text-gray-700 hover:text-blue-500 font-bold cursor-pointer"
                                     prefetch={false}
                                 >
                                     {t('nav.documents')}
                                 </Link>
                             </div>
                             {/* Language selector */}
-                            <div className="relative ml-2">
+                            <div className="flex items-center ml-2 gap-1">
                                 <button
-                                    onClick={() => setIsLanguageOpen(!isLanguageOpen)}
-                                    className="hover:opacity-80 transition-opacity cursor-pointer"
+                                    onClick={() => handleLanguageChange('tr')}
+                                    className={`p-1 rounded transition-opacity ${language === 'tr' ? 'ring-2 ring-blue-500 bg-blue-100' : 'opacity-70 hover:opacity-100'}`}
+                                    aria-label="Türkçe"
                                 >
-                                    {language === 'en' ? (
-                                        <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="36"
-                                            height="36"
-                                            viewBox="0 0 512 512"
-                                            className="hover:opacity-80"
-                                        >
-                                            <mask id="c">
-                                                <circle cx="256" cy="256" r="256" fill="#fff" />
-                                            </mask>
-                                            <g mask="url(#c)">
-                                                <path fill="#f0f0f0" d="M0 0h512v512H0z" />
-                                                <path fill="#0052b4" d="M0 0h512v512H0z" />
-                                                <path fill="#f0f0f0" d="M0 0L512 512M512 0L0 512" stroke="#f0f0f0" stroke-width="74" />
-                                                <path fill="#f0f0f0" d="M256 0v512M0 256h512" stroke="#f0f0f0" stroke-width="102" />
-                                                <path fill="#d80027" d="M0 0L512 512M512 0L0 512" stroke="#d80027" stroke-width="26" />
-                                                <path fill="#d80027" d="M256 0v512M0 256h512" stroke="#d80027" stroke-width="54" />
-                                            </g>
-                                        </svg>
-                                    ) : (
-                                        <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="36"
-                                            height="36"
-                                            viewBox="0 0 512 512"
-                                            className="hover:opacity-80"
-                                        >
-                                            <mask id="a">
-                                                <circle cx="256" cy="256" r="256" fill="#fff" />
-                                            </mask>
-                                            <g mask="url(#a)">
-                                                <path fill="#d80027" d="M0 0h512v512H0z" />
-                                                <g fill="#f0f0f0">
-                                                    <path d="M245.5 209.2l21 29 34-11.1-21 29 21 28.9-34-11.1-21 29V267l-34-11.1 34-11.1z" />
-                                                    <path d="M188.2 328.3a72.3 72.3 0 1 1 34.4-136 89 89 0 1 0 0 127.3 72 72 0 0 1-34.4 8.7z" />
-                                                </g>
-                                            </g>
-                                        </svg>
-                                    )}
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 512 512">
+                                        <mask id="tr"><circle cx="256" cy="256" r="256" fill="#fff" /></mask>
+                                        <g mask="url(#tr)"><path fill="#d80027" d="M0 0h512v512H0z" /><g fill="#f0f0f0"><path d="M245.5 209.2l21 29 34-11.1-21 29 21 28.9-34-11.1-21 29V267l-34-11.1 34-11.1z" /><path d="M188.2 328.3a72.3 72.3 0 1 1 34.4-136 89 89 0 1 0 0 127.3 72 72 0 0 1-34.4 8.7z" /></g></g>
+                                    </svg>
                                 </button>
-                                {/* Language dropdown */}
-                                <LanguageDropdown
-                                    isOpen={isLanguageOpen}
-                                    animationClass={languageAnimationClass}
-                                    onMouseLeave={() => setIsLanguageOpen(false)}
-                                    onLanguageChange={handleLanguageChange}
-                                    currentLanguage={language}
-                                />
+                                <button
+                                    onClick={() => handleLanguageChange('en')}
+                                    className={`p-1 rounded transition-opacity ${language === 'en' ? 'ring-2 ring-blue-500 bg-blue-100' : 'opacity-70 hover:opacity-100'}`}
+                                    aria-label="English"
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 512 512">
+                                        <mask id="en"><circle cx="256" cy="256" r="256" fill="#fff" /></mask>
+                                        <g mask="url(#en)"><path fill="#f0f0f0" d="M0 0h512v512H0z" /><path fill="#0052b4" d="M0 0h512v512H0z" /><path fill="#f0f0f0" d="M0 0L512 512M512 0L0 512" stroke="#f0f0f0" strokeWidth="74" /><path fill="#f0f0f0" d="M256 0v512M0 256h512" stroke="#f0f0f0" strokeWidth="102" /><path fill="#d80027" d="M0 0L512 512M512 0L0 512" stroke="#d80027" strokeWidth="26" /><path fill="#d80027" d="M256 0v512M0 256h512" stroke="#d80027" strokeWidth="54" /></g>
+                                    </svg>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -501,7 +397,7 @@ export default function Navbar() {
                     <nav className="flex flex-col gap-1">
                         {/* Products Dropdown */}
                         <button
-                            className="flex items-center justify-between text-xs text-gray-700 hover:text-blue-500 font-light py-2 cursor-pointer w-full"
+                            className="flex items-center justify-between text-xs text-gray-700 hover:text-blue-500 font-bold py-2 cursor-pointer w-full"
                             onClick={() => setIsMobileProductsOpen((v) => !v)}
                         >
                             {t('nav.products')}
@@ -524,7 +420,7 @@ export default function Navbar() {
                         )}
                         {/* Services Dropdown */}
                         <button
-                            className="flex items-center justify-between text-xs text-gray-700 hover:text-blue-500 font-light py-2 cursor-pointer w-full"
+                            className="flex items-center justify-between text-xs text-gray-700 hover:text-blue-500 font-bold py-2 cursor-pointer w-full"
                             onClick={() => setIsMobileServicesOpen((v) => !v)}
                         >
                             {t('nav.services')}
@@ -543,52 +439,55 @@ export default function Navbar() {
                         )}
                         <Link
                             href={language === 'en' ? '/en/about' : '/about'}
-                            className="text-xs text-gray-700 hover:text-blue-500 font-light py-2 cursor-pointer"
+                            className="text-xs text-gray-700 hover:text-blue-500 font-bold py-2 cursor-pointer"
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
                             {t('nav.about')}
                         </Link>
                         <Link
                             href={language === 'en' ? '/en/contact' : '/contact'}
-                            className="text-xs text-gray-700 hover:text-blue-500 font-light py-2 cursor-pointer"
+                            className="text-xs text-gray-700 hover:text-blue-500 font-bold py-2 cursor-pointer"
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
                             {t('nav.contact')}
                         </Link>
                         <Link
                             href="/media"
-                            className="text-xs text-gray-700 hover:text-blue-500 font-light py-2 cursor-pointer"
+                            className="text-xs text-gray-700 hover:text-blue-500 font-bold py-2 cursor-pointer"
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
                             {t('nav.media')}
                         </Link>
                         <Link
                             href="/certificates"
-                            className="text-xs text-gray-700 hover:text-blue-500 font-light py-2 cursor-pointer"
+                            className="text-xs text-gray-700 hover:text-blue-500 font-bold py-2 cursor-pointer"
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
                             {t('nav.documents')}
                         </Link>
                         {/* Language Switcher */}
-                        <button
-                            className="flex items-center mt-3 text-xs font-light text-gray-700 hover:text-blue-500 cursor-pointer"
-                            onClick={() => {
-                                handleLanguageChange(language === 'en' ? 'tr' : 'en');
-                                setIsMobileMenuOpen(false);
-                            }}
-                        >
-                            {language === 'en' ? (
+                        <div className="flex items-center mt-3 gap-2">
+                            <button
+                                onClick={() => { handleLanguageChange('tr'); setIsMobileMenuOpen(false); }}
+                                className={`p-1 rounded transition-opacity ${language === 'tr' ? 'ring-2 ring-blue-500 bg-blue-100' : 'opacity-70 hover:opacity-100'}`}
+                                aria-label="Türkçe"
+                            >
                                 <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 512 512">
-                                    <mask id="c"><circle cx="256" cy="256" r="256" fill="#fff" /></mask>
-                                    <g mask="url(#c)"><path fill="#f0f0f0" d="M0 0h512v512H0z" /><path fill="#0052b4" d="M0 0h512v512H0z" /><path fill="#f0f0f0" d="M0 0L512 512M512 0L0 512" stroke="#f0f0f0" strokeWidth="74" /><path fill="#f0f0f0" d="M256 0v512M0 256h512" stroke="#f0f0f0" strokeWidth="102" /><path fill="#d80027" d="M0 0L512 512M512 0L0 512" stroke="#d80027" strokeWidth="26" /><path fill="#d80027" d="M256 0v512M0 256h512" stroke="#d80027" strokeWidth="54" /></g>
+                                    <mask id="trm"><circle cx="256" cy="256" r="256" fill="#fff" /></mask>
+                                    <g mask="url(#trm)"><path fill="#d80027" d="M0 0h512v512H0z" /><g fill="#f0f0f0"><path d="M245.5 209.2l21 29 34-11.1-21 29 21 28.9-34-11.1-21 29V267l-34-11.1 34-11.1z" /><path d="M188.2 328.3a72.3 72.3 0 1 1 34.4-136 89 89 0 1 0 0 127.3 72 72 0 0 1-34.4 8.7z" /></g></g>
                                 </svg>
-                            ) : (
+                            </button>
+                            <button
+                                onClick={() => { handleLanguageChange('en'); setIsMobileMenuOpen(false); }}
+                                className={`p-1 rounded transition-opacity ${language === 'en' ? 'ring-2 ring-blue-500 bg-blue-100' : 'opacity-70 hover:opacity-100'}`}
+                                aria-label="English"
+                            >
                                 <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 512 512">
-                                    <mask id="a"><circle cx="256" cy="256" r="256" fill="#fff" /></mask>
-                                    <g mask="url(#a)"><path fill="#d80027" d="M0 0h512v512H0z" /><g fill="#f0f0f0"><path d="M245.5 209.2l21 29 34-11.1-21 29 21 28.9-34-11.1-21 29V267l-34-11.1 34-11.1z" /><path d="M188.2 328.3a72.3 72.3 0 1 1 34.4-136 89 89 0 1 0 0 127.3 72 72 0 0 1-34.4 8.7z" /></g></g>
+                                    <mask id="enm"><circle cx="256" cy="256" r="256" fill="#fff" /></mask>
+                                    <g mask="url(#enm)"><path fill="#f0f0f0" d="M0 0h512v512H0z" /><path fill="#0052b4" d="M0 0h512v512H0z" /><path fill="#f0f0f0" d="M0 0L512 512M512 0L0 512" stroke="#f0f0f0" strokeWidth="74" /><path fill="#f0f0f0" d="M256 0v512M0 256h512" stroke="#f0f0f0" strokeWidth="102" /><path fill="#d80027" d="M0 0L512 512M512 0L0 512" stroke="#d80027" strokeWidth="26" /><path fill="#d80027" d="M256 0v512M0 256h512" stroke="#d80027" strokeWidth="54" /></g>
                                 </svg>
-                            )}
-                        </button>
+                            </button>
+                        </div>
                     </nav>
                 </div>
             </div>
