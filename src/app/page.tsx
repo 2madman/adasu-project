@@ -208,7 +208,7 @@ export default function Anasayfa() {
     <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
       {/* Hero Section */}
-      <div className="bg-gray-200 flex items-start justify-center pt-4 mt-20 min-h-[600px] relative overflow-hidden">
+      <div className="bg-gray-200 flex items-start justify-center mt-14 min-h-[400px] relative overflow-hidden">
         {/* Background Image */}
         <Image
           src="/images/main.jpeg"
@@ -234,7 +234,7 @@ export default function Anasayfa() {
               {t('home.hero.made')}
             </div>
             <div className="mt-6 max-w-6xl mx-auto">
-              <div className="bg-red-600 shadow-lg rounded-2xl px-12 py-10 flex flex-col items-center justify-center mb-6 border border-red-400 w-full">
+              <div className="bg-red-600 shadow-lg rounded-2xl px-12 py-4 flex flex-col items-center justify-center mb-2 border border-red-400 w-full">
                 <h2 className="text-lg md:text-xl font-bold text-white-800 mb-2 text-center w-full">{searchTitle}</h2>
                 <div className="w-10 h-1 bg-red-300 rounded mb-4 mx-auto" />
                 <div className="flex flex-row space-x-6 items-center justify-center w-full">
@@ -285,7 +285,7 @@ export default function Anasayfa() {
       </div>
       {/* Areas of Expertise Section */}
       <div className="w-full py-12 bg-gray-100">
-        <div className="container mt-12 mx-auto px-4">
+        <div className="container mx-auto px-4">
           <h2 className="text-lg md:text-xl font-bold text-gray-800 mb-6 text-left">
             {language === 'en' ? 'OUR AREAS OF EXPERTISE' : 'UZMANLIK ALANLARIMIZ'}
           </h2>

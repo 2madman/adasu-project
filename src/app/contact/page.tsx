@@ -81,7 +81,7 @@ export default function ContactPage() {
             <Navbar />
 
             {/* Hero Image Section */}
-            <div className="bg-gray-200 flex items-start justify-center pt-4 mt-16 min-h-[300px] relative overflow-hidden">
+            <div className="bg-gray-200 flex items-start justify-center pt-4 mt-5 min-h-[300px] relative overflow-hidden">
                 {/* Background Image */}
                 <Image
                     src="/images/resim.png"

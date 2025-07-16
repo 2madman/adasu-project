@@ -51,7 +51,7 @@ const ProductsDropdown = ({ isOpen, animationClass, onMouseLeave, onProductClick
 
     return (
         <div
-            className={`fixed top-20 left-0 right-0 bg-white/95 shadow-lg z-40 h-auto transition-all duration-300 ease-in-out transform ${isOpen ? 'block' : 'hidden'} ${animationClass}`}
+            className={`fixed top-14 left-0 right-0 bg-white/95 shadow-lg z-40 h-auto transition-all duration-300 ease-in-out transform ${isOpen ? 'block' : 'hidden'} ${animationClass}`}
             onMouseLeave={onMouseLeave}
         >
             <div className="container mx-auto px-2 py-4 flex">
@@ -61,7 +61,7 @@ const ProductsDropdown = ({ isOpen, animationClass, onMouseLeave, onProductClick
                             <a
                                 key={product}
                                 onClick={() => onProductClick(product)}
-                                className="flex items-center py-2 text-gray-800 hover:text-blue-500 transition-colors font-semibold text-base cursor-pointer"
+                                className="flex items-center py-2 text-gray-800 hover:text-blue-500 transition-colors font-light text-xs cursor-pointer"
                             >
                                 <span>{product}</span>
                                 <svg className="ml-2 w-6 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -105,7 +105,7 @@ const ServicesDropdown = ({ isOpen, animationClass, onMouseLeave, onProductClick
 
     return (
         <div
-            className={`fixed top-20 left-0 right-0 bg-white/95 shadow-lg z-40 h-auto transition-all duration-300 ease-in-out transform ${isOpen ? 'block' : 'hidden'} ${animationClass}`}
+            className={`fixed top-14 left-0 right-0 bg-white/95 shadow-lg z-40 h-auto transition-all duration-300 ease-in-out transform ${isOpen ? 'block' : 'hidden'} ${animationClass}`}
             onMouseLeave={onMouseLeave}
         >
             <div className="container mx-auto px-2 py-4 flex">
@@ -114,7 +114,7 @@ const ServicesDropdown = ({ isOpen, animationClass, onMouseLeave, onProductClick
                         {servicesToDisplay.map((service, index) => (
                             <div
                                 key={service}
-                                className="flex items-center py-2 text-gray-600 font-semibold text-base"
+                                className="flex items-center py-2 text-gray-600 font-light text-xs"
                             >
                                 <span>{service}</span>
                             </div>
@@ -144,7 +144,7 @@ const LanguageDropdown = ({ isOpen, animationClass, onMouseLeave, onLanguageChan
             {currentLanguage === 'en' ? (
                 <button
                     onClick={() => onLanguageChange('tr')}
-                    className="flex items-center py-2 hover:opacity-80 transition-opacity"
+                    className="flex items-center py-2 hover:opacity-80 transition-opacity text-xs font-light"
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -164,12 +164,12 @@ const LanguageDropdown = ({ isOpen, animationClass, onMouseLeave, onLanguageChan
                             </g>
                         </g>
                     </svg>
-                    <span className="ml-2 text-sm font-bold text-gray-800">Türkçe</span>
+                    <span className="ml-2 text-xs font-light text-gray-800">Türkçe</span>
                 </button>
             ) : (
                 <button
                     onClick={() => onLanguageChange('en')}
-                    className="flex items-center py-2 hover:opacity-80 transition-opacity"
+                    className="flex items-center py-2 hover:opacity-80 transition-opacity text-xs font-light"
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -190,7 +190,7 @@ const LanguageDropdown = ({ isOpen, animationClass, onMouseLeave, onLanguageChan
                             <path fill="#d80027" d="M256 0v512M0 256h512" stroke="#d80027" stroke-width="54" />
                         </g>
                     </svg>
-                    <span className="ml-2 text-sm font-bold text-gray-800">English</span>
+                    <span className="ml-2 text-xs font-light text-gray-800">English</span>
                 </button>
             )}
         </div>
@@ -314,16 +314,16 @@ export default function Navbar() {
         <header className="w-full">
             {/* Navbar */}
             <nav className="fixed top-0 left-0 right-0 w-full bg-white/90 backdrop-blur-sm z-50 shadow-md">
-                <div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex justify-between items-center h-20">
+                <div className="w-full mx-auto px-3 sm:px-4 lg:px-6">
+                    <div className="flex justify-between items-center h-14">
                         {/* Logo */}
-                        <div className="flex items-center pl-4">
+                        <div className="flex items-center pl-2">
                             <Link href="/">
                                 <Image
                                     src="/images/logo.png"
                                     alt="Adasu Logo"
-                                    width={180}
-                                    height={80}
+                                    width={110}
+                                    height={45}
                                     className="cursor-pointer"
                                     priority
                                 />
@@ -336,87 +336,85 @@ export default function Navbar() {
                                 aria-label="Open menu"
                                 onClick={() => setIsMobileMenuOpen((v) => !v)}
                             >
-                                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                                 </svg>
                             </button>
                         </div>
                         {/* Navigation Links */}
-                        <div className="hidden md:flex items-center pr-8">
+                        <div className="hidden md:flex items-center pr-4">
                             {/* Products dropdown */}
                             <div className="relative flex items-center">
                                 <a
-                                    href="#"
-                                    className="text-base text-gray-700 hover:text-blue-500 font-bold flex items-center cursor-pointer"
+                                    className="text-xs text-gray-700 hover:text-blue-500 font-light flex items-center"
                                     onMouseEnter={() => {
                                         setIsProductsOpen(true);
                                         setIsServicesOpen(false);
                                     }}
                                 >
                                     {t('nav.products')}
-                                    <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <svg className="ml-1 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
                                     </svg>
                                 </a>
-                                <span className="mx-2 text-blue-600 text-xl font-bold select-none">/</span>
+                                <span className="mx-1 text-blue-600 text-lg font-light select-none">/</span>
                             </div>
                             <div className="relative flex items-center">
                                 <a
-                                    href="#"
-                                    className="text-base text-gray-700 hover:text-blue-500 font-bold flex items-center cursor-pointer"
+                                    className="text-xs text-gray-700 hover:text-blue-500 font-light flex items-center"
                                     onMouseEnter={() => {
                                         setIsServicesOpen(true);
                                         setIsProductsOpen(false);
                                     }}
                                 >
                                     {t('nav.services')}
-                                    <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <svg className="ml-1 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
                                     </svg>
                                 </a>
-                                <span className="mx-2 text-blue-600 text-xl font-bold select-none">/</span>
+                                <span className="mx-1 text-blue-600 text-lg font-light select-none">/</span>
                             </div>
                             <div className="flex items-center">
                                 <Link
-                                    href={language === 'en' ? '/en/about' : '/about'}
-                                    className="text-base text-gray-700 hover:text-blue-500 font-bold cursor-pointer"
+                                    href={language === 'en' ? '/about' : '/about'}
+                                    className="text-xs text-gray-700 hover:text-blue-500 font-light cursor-pointer"
                                     prefetch={false}
                                 >
                                     {t('nav.about')}
                                 </Link>
-                                <span className="mx-2 text-blue-600 text-xl font-bold select-none">/</span>
+                                <span className="mx-1 text-blue-600 text-lg font-light select-none">/</span>
                             </div>
                             <div className="flex items-center">
                                 <Link
-                                    href={language === 'en' ? '/en/contact' : '/contact'}
-                                    className="text-base text-gray-700 hover:text-blue-500 font-bold cursor-pointer"
+                                    href={language === 'en' ? '/contact' : '/contact'}
+                                    className="text-xs text-gray-700 hover:text-blue-500 font-light cursor-pointer"
                                     prefetch={false}
                                 >
                                     {t('nav.contact')}
                                 </Link>
-                                <span className="mx-2 text-blue-600 text-xl font-bold select-none">/</span>
+                                <span className="mx-1 text-blue-600 text-lg font-light select-none">/</span>
                             </div>
                             <div className="flex items-center">
                                 <Link
                                     href="/media"
-                                    className="text-base text-gray-700 hover:text-blue-500 font-bold cursor-pointer"
+                                    className="text-xs text-gray-700 hover:text-blue-500 font-light cursor-pointer"
                                     prefetch={false}
                                 >
                                     {t('nav.media')}
                                 </Link>
-                                <span className="mx-2 text-blue-600 text-xl font-bold select-none">/</span>
+                                <span className="mx-1 text-blue-600 text-lg font-light select-none">/</span>
                             </div>
                             <div className="flex items-center">
                                 <Link
-                                    href={language === 'en' ? '/en/certificates' : '/certificates'}
-                                    className="text-base text-gray-700 hover:text-blue-500 font-bold cursor-pointer"
+                                    href="/certificates"
+                                    className="text-xs text-gray-700 hover:text-blue-500 font-light cursor-pointer"
                                     prefetch={false}
                                 >
                                     {t('nav.documents')}
                                 </Link>
                             </div>
                             {/* Language selector */}
-                            <div className="relative ml-4">
+                            <div className="relative ml-2">
                                 <button
                                     onClick={() => setIsLanguageOpen(!isLanguageOpen)}
                                     className="hover:opacity-80 transition-opacity cursor-pointer"
@@ -485,38 +483,38 @@ export default function Navbar() {
                 className={`fixed top-0 left-0 w-4/5 max-w-xs h-full bg-white z-50 shadow-lg transform transition-transform duration-300 md:hidden ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'}`}
                 style={{ willChange: 'transform' }}
             >
-                <div className="flex flex-col h-full p-6">
-                    <div className="flex items-center justify-between mb-8">
+                <div className="flex flex-col h-full p-4">
+                    <div className="flex items-center justify-between mb-6">
                         <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>
-                            <Image src="/images/logo.png" alt="Adasu Logo" width={120} height={60} className="cursor-pointer" />
+                            <Image src="/images/logo.png" alt="Adasu Logo" width={80} height={40} className="cursor-pointer" />
                         </Link>
                         <button
                             className="text-gray-700 hover:text-blue-500 focus:outline-none cursor-pointer"
                             aria-label="Close menu"
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
-                            <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                             </svg>
                         </button>
                     </div>
-                    <nav className="flex flex-col gap-2">
+                    <nav className="flex flex-col gap-1">
                         {/* Products Dropdown */}
                         <button
-                            className="flex items-center justify-between text-base text-gray-700 hover:text-blue-500 font-bold py-2 cursor-pointer w-full"
+                            className="flex items-center justify-between text-xs text-gray-700 hover:text-blue-500 font-light py-2 cursor-pointer w-full"
                             onClick={() => setIsMobileProductsOpen((v) => !v)}
                         >
                             {t('nav.products')}
-                            <svg className={`ml-2 w-4 h-4 transform transition-transform ${isMobileProductsOpen ? 'rotate-90' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg className={`ml-2 w-3 h-3 transform transition-transform ${isMobileProductsOpen ? 'rotate-90' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
                             </svg>
                         </button>
                         {isMobileProductsOpen && (
-                            <div className="pl-4 flex flex-col gap-1 mb-2">
+                            <div className="pl-3 flex flex-col gap-1 mb-2">
                                 {productNames.map((product) => (
                                     <button
                                         key={product}
-                                        className="text-gray-700 hover:text-blue-500 text-sm py-1 text-left cursor-pointer"
+                                        className="text-gray-700 hover:text-blue-500 text-[10px] py-1 text-left cursor-pointer font-light"
                                         onClick={() => handleProductClick(product)}
                                     >
                                         {product}
@@ -526,18 +524,18 @@ export default function Navbar() {
                         )}
                         {/* Services Dropdown */}
                         <button
-                            className="flex items-center justify-between text-base text-gray-700 hover:text-blue-500 font-bold py-2 cursor-pointer w-full"
+                            className="flex items-center justify-between text-xs text-gray-700 hover:text-blue-500 font-light py-2 cursor-pointer w-full"
                             onClick={() => setIsMobileServicesOpen((v) => !v)}
                         >
                             {t('nav.services')}
-                            <svg className={`ml-2 w-4 h-4 transform transition-transform ${isMobileServicesOpen ? 'rotate-90' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg className={`ml-2 w-3 h-3 transform transition-transform ${isMobileServicesOpen ? 'rotate-90' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
                             </svg>
                         </button>
                         {isMobileServicesOpen && (
-                            <div className="pl-4 flex flex-col gap-1 mb-2">
+                            <div className="pl-3 flex flex-col gap-1 mb-2">
                                 {serviceNames.map((service) => (
-                                    <div key={service} className="text-gray-700 text-sm py-1">
+                                    <div key={service} className="text-gray-700 text-[10px] py-1 font-light">
                                         {service}
                                     </div>
                                 ))}
@@ -545,35 +543,35 @@ export default function Navbar() {
                         )}
                         <Link
                             href={language === 'en' ? '/en/about' : '/about'}
-                            className="text-base text-gray-700 hover:text-blue-500 font-bold py-2 cursor-pointer"
+                            className="text-xs text-gray-700 hover:text-blue-500 font-light py-2 cursor-pointer"
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
                             {t('nav.about')}
                         </Link>
                         <Link
                             href={language === 'en' ? '/en/contact' : '/contact'}
-                            className="text-base text-gray-700 hover:text-blue-500 font-bold py-2 cursor-pointer"
+                            className="text-xs text-gray-700 hover:text-blue-500 font-light py-2 cursor-pointer"
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
                             {t('nav.contact')}
                         </Link>
                         <Link
                             href="/media"
-                            className="text-base text-gray-700 hover:text-blue-500 font-bold py-2 cursor-pointer"
+                            className="text-xs text-gray-700 hover:text-blue-500 font-light py-2 cursor-pointer"
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
                             {t('nav.media')}
                         </Link>
                         <Link
-                            href={language === 'en' ? '/en/certificates' : '/certificates'}
-                            className="text-base text-gray-700 hover:text-blue-500 font-bold py-2 cursor-pointer"
+                            href="/certificates"
+                            className="text-xs text-gray-700 hover:text-blue-500 font-light py-2 cursor-pointer"
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
                             {t('nav.documents')}
                         </Link>
                         {/* Language Switcher */}
                         <button
-                            className="flex items-center mt-4 text-base font-bold text-gray-700 hover:text-blue-500 cursor-pointer"
+                            className="flex items-center mt-3 text-xs font-light text-gray-700 hover:text-blue-500 cursor-pointer"
                             onClick={() => {
                                 handleLanguageChange(language === 'en' ? 'tr' : 'en');
                                 setIsMobileMenuOpen(false);

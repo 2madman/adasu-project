@@ -169,7 +169,7 @@ export default function UrunlerDetaySayfasi() {
                         <p className="text-gray-600 mb-6">{t('notfound.message')}</p>
                         <button
                             onClick={() => router.push(`/products/${productName}`)}
-                            className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors duration-300 font-medium"
+                            className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors duration-300 font-medium cursor-pointer"
                         >
                             {t('notfound.return')}
                         </button>
@@ -186,7 +186,7 @@ export default function UrunlerDetaySayfasi() {
     return (
         <div className="min-h-screen bg-gradient-to-br from-blue-100 via-white to-blue-50 flex flex-col">
             <Navbar />
-            <div className="flex-grow max-w-5xl mx-auto mt-6">
+            <div className="flex-grow max-w-5xl mx-auto mt-6 pt-12">
                 <h1 className="text-3xl font-bold text-blue-700 mb-8 border-b-2 border-blue-300 pb-2 drop-shadow-sm">
                     {t('product.details.title')}
                 </h1>
@@ -422,7 +422,7 @@ export default function UrunlerDetaySayfasi() {
                     <div className="relative max-w-4xl w-full max-h-[90vh] flex flex-col">
                         {/* Close button */}
                         <button
-                            className="absolute -top-12 right-0 text-white hover:text-blue-300 z-10"
+                            className="absolute -top-12 right-0 text-white hover:text-blue-300 z-10 cursor-pointer"
                             onClick={closeImageModal}
                         >
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -451,7 +451,7 @@ export default function UrunlerDetaySayfasi() {
                                                             e.stopPropagation();
                                                             prevImage(imageUrls, true);
                                                         }}
-                                                        className="bg-white/20 hover:bg-white/40 text-white rounded-full p-2 shadow-md transition-all"
+                                                        className="bg-white/20 hover:bg-white/40 text-white rounded-full p-2 shadow-md transition-all cursor-pointer"
                                                         aria-label="Önceki görsel"
                                                     >
                                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -463,7 +463,7 @@ export default function UrunlerDetaySayfasi() {
                                                             e.stopPropagation();
                                                             nextImage(imageUrls, true);
                                                         }}
-                                                        className="bg-white/20 hover:bg-white/40 text-white rounded-full p-2 shadow-md transition-all"
+                                                        className="bg-white/20 hover:bg-white/40 text-white rounded-full p-2 shadow-md transition-all cursor-pointer"
                                                         aria-label="Sonraki görsel"
                                                     >
                                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
